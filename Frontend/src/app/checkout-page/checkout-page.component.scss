@@ -1,0 +1,36 @@
+.checkout-page{
+    padding-top: 7rem;
+    background-color: var(--surface-900);
+    color: var(--surface-0);
+    overflow: hidden;
+    min-height: 90vh;
+    .back-to-cart{
+        padding-top: 1rem;
+        padding-left: 1rem;
+    }
+    .grid{
+        .checkout-form{
+            padding: 1.5rem;
+            .fluid{
+                .field{
+                    .p-inputtext{
+                        width: 100%;
+                    }
+                    .p-dropdown{
+                        width: 100%;
+                    }
+                    .p-error{
+                        color: var(--red-500);
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        .checkout-summary{
+            padding: 1rem;
+            .checkout-btn{
+                margin-top: 1rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+<p-toast></p-toast>
+<p-confirmDialog header="Delete User" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="admin-page">
+    <p-card header="Users" subheader="List of all Users">
+        <div class="p-grid">
+            <div class="p-grid">
+                <div class="col-12">
+                    <p-table dataKey="_id" #dt2 [value]="users"  [loading]="users.length ? false : true" 
+                        [globalFilterFields]="['firstname', 'lastname', 'email']" 
+                        responsiveLayout="scroll"
+                        [paginator]="true"
+                        [rowsPerPageOptions]="[5, 10, 15, 20, 25]"
+                        [rows]="15"  
+                        [scrollable]="true" 
+                        scrollHeight="400px"
+                        >
+                        <ng-template pTemplate="caption">
+                            <div class="flex">
+                                <span class="p-input-icon-left ml-auto">
+                                    <i class="pi pi-search"></i>
+                                    <input pInputText type="text" (input)="dt2.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+                                </span>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="width: 3rem"></th>
+                                <th pSortableColumn="firstname">FirstName<p-sortIcon field="firstname"></p-sortIcon></th>
+                                <th pSortableColumn="lastname">LastName<p-sortIcon field="lastname"></p-sortIcon></th>
+                                <th>Avatar</th>
+                                <th pSortableColumn="email">Email<p-sortIcon field="email"></p-sortIcon></th>
+                                <th>Login</th>
+                                <th>EditRoles</th>
+                                <th>Delete</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-user let-expanded="expanded">
+                            <tr>
+                                <td>
+                                    <button type="button" pButton pRipple [pRowToggler]="user" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                                </td>
+                                <td >{{user.firstname}}</td>
+                                <td >{{user.lastname}}</td>
+                                <td >
+                                    <img [src]="user.avatar" alt="avatar" [style]="{width: '5rem'}">
+                                </td>
+                                <td >{{user.email}}</td>
+                                <td >
+                                    <p-toggleButton 
+                                        onLabel="True"
+                                        offLabel="False"
+                                        [(ngModel)]="user.login" 
+                                    >
+                                    </p-toggleButton>
+                                </td>
+                                <td>
+                                    <p-button (onClick)="onEdit(user._id)" icon="pi pi-pencil" styleClass="p-button-success"></p-button>
+                                </td>
+                                <td>
+                                    <p-button (onClick)="onDelete(user._id)" icon="pi pi-trash" styleClass="p-button-danger"></p-button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="rowexpansion" let-user>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="p-5 col-12">
+                                        <p-table [value]="user.details" dataKey="age">
+                                            <ng-template pTemplate="header">
+                                                <tr>
+                                                    <th >age </th>
+                                                    <th >Provider </th>
+                                                    <th >Roles </th>
+                                                    <th >CreatedAt </th>
+                                                    <th >UpdatedAt </th>
+                                                    <th >Enable </th>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-details>
+                                                <tr >
+                                                    <td>
+                                                        {{details?.age}}
+                                                    </td>
+                                                    <td>
+                                                        {{details?.provider}}
+                                                    </td>
+                                                    <td class="block">
+                                                        <li *ngFor='let role of details.roles'>{{role.name}}</li>
+                                                    </td>
+                                                    <td >
+                                                        {{details?.createdAt | amDateFormat: 'LLLL'}}
+                                                    </td>
+                                                    <td>
+                                                        {{details?.updatedAt | amDateFormat: 'LLLL'}}
+                                                    </td>
+                                                    <td >
+                                                        <p-toggleButton 
+                                                            onLabel="True"
+                                                            offLabel="False"
+                                                            [(ngModel)]="details.enable" 
+                                                            (onChange)="onChange(details._id)" >
+                                                        </p-toggleButton>
+                                                    </td>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage">
+                                                <tr>
+                                                    <td colspan="6">There are no order for this product yet.</td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </p-card>
+</div>
+

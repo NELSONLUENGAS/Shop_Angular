@@ -1,0 +1,15 @@
+header{
+    position: fixed;
+    height: 7rem;
+    background-color: var(--surface-b);
+    padding: 0;
+    width: 100vw;
+    z-index: 2;
+    .logo{
+        position: relative;
+        top: -0.5rem;
+        img{
+            width: 160px;
+        }
+    }
+}

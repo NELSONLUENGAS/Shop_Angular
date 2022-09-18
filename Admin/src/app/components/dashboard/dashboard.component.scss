@@ -1,0 +1,26 @@
+.d-card-container{
+    min-height: 100vh;
+    .d-card {
+        background-image: linear-gradient(to left top, #0b213f, #0a1e3a, #091c35, #091931, #08172c, #0d1427, #101122, #110e1d, #120916, #10050f, #0a0206, #000000);
+        position: relative;
+        cursor: pointer;
+        .d-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            .pi{
+                font-size: 2.5rem;
+            }
+            .name{
+                font-size: 1.2rem;
+            }
+            .number{
+                position: absolute;
+                bottom: 0.5rem;
+                right: 1rem;
+                font-size: 2rem;
+            }
+        }
+    }
+}

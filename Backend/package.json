@@ -1,0 +1,42 @@
+{
+  "name": "ecommerce_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src ",
+    "dev": "ts-node-dev  --respawn src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typegoose/typegoose": "^9.10.0",
+    "@types/axios": "^0.14.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/express-jwt": "^6.0.4",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/morgan": "^1.9.3",
+    "@types/multer": "^1.4.7",
+    "@types/stripe": "^8.0.417",
+    "morgan": "^1.10.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.2",
+    "mongoose-findorcreate": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "stripe": "^10.10.0"
+  }
+}

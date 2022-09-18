@@ -1,0 +1,83 @@
+.cart-page{
+    padding: 1rem;
+    padding-top: 7rem;
+    background-color: var(--surface-900);
+    color: var(--surface-0);
+    min-height: 90vh;
+    .grid{
+        .col-8{
+            .cart-content-header{
+                position: fixed;
+                background-color: var(--surface-900);
+                z-index: 2;
+            }
+            .divider{
+                min-height: 10rem;
+            }
+            .cart-back{
+                padding-top: 1rem;
+            }
+            .cart-title{
+                padding-top: 1rem;
+            }
+            .cart-shipping{
+                font-style: italic;
+                padding-top: 1rem;
+            }
+            .cart-item{
+                background-color: var(--surface-800);
+                margin-top: 1rem;
+                border-radius: 0.5rem;
+                &-image{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0.5rem;
+                    img{
+                        border-radius: 0.5rem;
+                        width: 90%;
+                    }
+                }
+                &-name{
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    margin-top: 1rem;
+                }
+                &-price{
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    color: var(--green-600);
+                }
+                &-btn{
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                }
+                .col-4{
+                    .cart-subtotal{
+                        color: var(--green-600);
+                    }
+                    .field{
+                        margin-top: 1rem;
+                        padding-right: 0.5rem;
+                        label{
+                            font-size: 1.1rem;
+                        }
+                        .p-inputtext{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .col-4{
+            .order-summary{
+                position: fixed;
+                padding: 1rem;
+                background-color: var(--surface-900);
+            }
+        }
+    }
+}

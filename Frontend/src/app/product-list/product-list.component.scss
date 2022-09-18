@@ -1,0 +1,27 @@
+.product-list{
+    padding-top: 6rem;
+    background-color: var(--surface-900);
+    overflow: hidden;
+    padding-right: 0.5rem;
+    .grid{
+        padding-top: 1rem;
+        .filters{
+            background-color: var(--surface-50);
+            min-height: 70vh;
+            .grid{
+                position: fixed;
+                padding-left: 0.5rem;
+                .categories{
+                    h3{
+                        margin-bottom: 0.5rem;
+                    }
+                }
+                .brands{
+                    h3{
+                        margin-bottom: -0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}

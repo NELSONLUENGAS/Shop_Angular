@@ -1,0 +1,21 @@
+<p-toast position="top-center" [hideTransitionOptions]="'50ms ease-in'" [showTransformOptions]="'translateX(100%)'" [preventOpenDuplicates]="true"></p-toast>
+<div class="product-item" *ngIf="Product.hasOwnProperty('name')" >
+    <div class="product-wrapper">
+        <div class="image-wrapper" [routerLink]="'/products/' + Product._id " >
+            <img [src]="Product.image" [alt]="Product.name" class="image">
+        </div>
+        <div class="content-wrapper">
+            <h4 class="name">{{Product.name}}</h4>
+            <h4 class="price">{{Product.price | currency }}</h4>
+        </div>
+        <div class="button-wrapper" >
+            <button
+            (click)="addProductToCart()"
+            pRipple
+            pButton
+            styleClass="add-to-cart"
+            label="Add to cart"
+            icon="pi pi-shopping-cart"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+@import 'primeicons/primeicons.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeng/resources/themes/lara-dark-indigo/theme.css';
+@import 'primeflex/primeflex.scss';
+@import '../node_modules/quill/dist/quill.core.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+@import './app/components/categories/categories-form/categories-form.component.scss';
+@import './app/components/login/login.component.scss';
+@import 'app/components/dashboard/dashboard.component.scss';
+@import 'app/components/sidebar/sidebar.component.scss';
+
+.p-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    margin: 0;
+}

@@ -1,0 +1,10 @@
+.admin{
+    &-wrapper{
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    &-main{
+        width: 85vw;
+        margin-left: 15vw;
+    }
+}

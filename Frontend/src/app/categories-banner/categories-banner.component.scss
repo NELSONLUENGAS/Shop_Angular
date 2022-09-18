@@ -1,0 +1,49 @@
+.categories-banner{
+    background-color: var(--surface-900);
+    padding-top: 1.5rem;
+    padding: 1rem;
+    overflow: hidden;
+    color: var(--surface-0);
+    .grid{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--surface-700);
+        border-radius: 1rem;
+        .category{
+            display: flex;
+            flex-direction: column;
+            width: 5.5rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            &:hover{
+                background-color: var(--surface-900);
+            }
+            .category-icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                    color: white;
+                }
+            }
+            .category-name{
+                display: flex;
+                justify-content: center;
+            }
+        }
+        
+        // .brand{
+        //     background-color: var(--surface-c);
+        //     width: 7rem;
+        //     .brand-icon{
+        //         width: 4rem;
+        //         img{
+        //             width: 100%;
+        //         }
+        //     }
+        // }
+    }
+}

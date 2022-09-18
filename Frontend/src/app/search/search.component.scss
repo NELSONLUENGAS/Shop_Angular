@@ -1,0 +1,19 @@
+.search{
+    font-size: 1.5rem;
+    background-color: var(--surface-c);
+    border-radius: 1rem;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    align-items: center;
+    &:focus{
+        width: 12rem;
+    }
+    i{
+        float: left;
+    }
+    #search{
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+}

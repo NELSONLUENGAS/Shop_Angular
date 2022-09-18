@@ -1,0 +1,3 @@
+<i routerLink="/cart"  *ngIf="cartCountItems !== undefined && cartCountItems !== '0' " class="pi pi-shopping-cart mr-4 cursor-pointer" pBadge style="font-size: 1.5rem" [value]="cartCountItems" severity="danger" ></i>
+<i routerLink="/cart"  *ngIf="cartCountItems === undefined || cartCountItems === '0' " class="pi pi-shopping-cart mr-4 cursor-pointer"  style="font-size: 1.5rem"  severity="danger" ></i>
+

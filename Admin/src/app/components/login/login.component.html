@@ -1,0 +1,49 @@
+<p-toast [showTransformOptions]="'translateX(100%)'"></p-toast>
+<p-dialog header="Loading..." [(visible)]="display" styleClass="dialog-login" [closable]="false" position="bottom" >
+    <ng-template pTemplate="footer" styleClass="col-12 flex justify-content-center align-items-center">
+        <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+    </ng-template>
+</p-dialog>
+<div class="login-register flex justify-content-center align-items-center">
+    <div class="login-register-panel col-12 flex justify-content-center align-items-center">
+        <p-card class="w-7">
+            <div class="grid">
+                <div class="col-6">
+                    <img src="assets/images/login-image.jpg" alt="icono-login" class="w-full h-full">
+                </div>
+                <div class="col-6 p-4">
+                    <div class="w-full">
+                        <h2>Welcome!</h2>
+                        <h3>Log In Page</h3>
+                    </div>
+                    <form [formGroup]="LoginFormGroup">
+                        <div class="grid ">
+                            <div class="col-12">
+                                <div class="p-inputgroup">
+                                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                    <input type="text" pInputText placeholder="Username" formControlName="email"> 
+                                </div>
+                                <small *ngIf="LoginForm['email'].invalid && isSubmitted">
+                                    <span class="p-error block" *ngIf="LoginForm['email'].errors?.['required']">Email is required</span>
+                                    <span class="p-error block" *ngIf="LoginForm['email'].errors?.['email']">Email is invalid</span>
+                                </small>        
+                            </div>
+                            <div class="col-12 ">
+                                <div class="p-inputgroup ">
+                                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                                    <p-password placeholder="Password" [toggleMask]="true" [feedback]="false" formControlName="password"></p-password>       
+                                </div>
+                                <small *ngIf="LoginForm['password'].invalid && isSubmitted">
+                                    <span class="p-error block" *ngIf="LoginForm['password'].errors?.['required']">Password is required</span>
+                                </small>   
+                            </div>
+                            <div class="col-12 ">
+                                <p-button label="Log In" styleClass="full-btn" (onClick)="onSubmit()"></p-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

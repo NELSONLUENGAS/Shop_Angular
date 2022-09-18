@@ -1,0 +1,63 @@
+<p-toast></p-toast>
+<p-confirmDialog header="Delete Category" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="admin-page">
+    <p-card header="Categories" subheader="List of all categories">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <p-button label="New" icon="pi pi-plus" styleClass="p-button-success" routerLink="form"></p-button>
+                    </div>
+                    <div class="p-toolbar-group-righr">
+                        <div class="flex">
+                            <span class="p-input-icon-left ml-auto">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" (input)="dt2.filterGlobal($any($event.target).value, 'contains')" placeholder="Search Product" />
+                            </span>
+                        </div>
+                    </div>
+                </p-toolbar>
+            </div>
+            <div class="p-grid">
+                <div class="col-12">
+                    <p-table #dt2 [value]="categories" 
+                        [loading]="categories.length ? false : true"
+                        [globalFilterFields]="['name', 'enable']"
+                        responsiveLayout="scroll"
+                        >
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+                                <th pSortableColumn="enable">Enable<p-sortIcon field="enable"></p-sortIcon></th>
+                                <th>Brands</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-category>
+                            <tr>
+                                <td class="category-name">{{category.name}}</td>
+                                <td class="category-enable">
+                                    <p-toggleButton 
+                                        onLabel="True"
+                                        offLabel="False"
+                                        [(ngModel)]="category.enable" 
+                                        (onChange)="onChange(category._id)" >
+                                    </p-toggleButton></td>
+                                <td class="category-brand">
+                                    <li *ngFor='let brand of category.brandID'>{{brand.name}}</li>
+                                </td>
+                                <td>
+                                    <p-button (onClick)="onEdit(category._id)" icon="pi pi-pencil" styleClass="p-button-success"></p-button>
+                                </td>
+                                <td>
+                                    <p-button (onClick)="onDelete(category._id)" icon="pi pi-trash" styleClass="p-button-danger"></p-button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </p-card>
+</div>
