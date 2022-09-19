@@ -1,100 +1,52 @@
-import { prop, getModelForClass, modelOptions, Severity, Ref, ReturnModelType } from '@typegoose/typegoose';
-import { Cart } from './Cart';
-import { Reviews } from './Reviews';
-import { Views } from './Views';
-import { QA } from './QuestionsAndAnswers';
-import { Category } from './Categories';
-import { Brand } from './Brand';
+import { Schema, model, Types, } from 'mongoose';
+import { IProduct, IProductStatic } from '../Interface/Product.interface';
+import { findOrCreate } from './Utils/StaticMethod';
 
-
-@modelOptions({
-    schemaOptions: {
-        versionKey: false,
-        timestamps: true
+const ProductSchema = new Schema<IProduct, IProductStatic>({
+    brandID: { 
+        type: Types.ObjectId, 
+        required: true, 
+        ref:'Brand'
     },
-    options:{
-        allowMixed: Severity.ALLOW,
-    }
-})
-export class Products {
-    @prop({
-        // required: true,
-        trim: true
-    })
-    public name : string
-
-    @prop({
-        // required: true,
+    categoryID: { 
+        type: Types.ObjectId, 
+        required: true, 
+        ref:'Category'
+    },
+    reviewID: [{ 
+        type: Types.ObjectId, 
+        required: true, 
+        ref:'Review'
+    }],
+    name: { 
+        type: String, 
+        required: true
+    },
+    price: { 
+        type: Number, 
+        required: true
+    },
+    STOCK: { 
+        type: Number, 
+        required: true, 
         min: 0
-    })
-    public STOCK : number
-
-    @prop({
-        // required: true
-    })
-    public price : number
-
-    @prop({
-        lowercase: true
-    })
-    public image : string
-
-    @prop({
-        // required: true,
-        type: Object
-    })
-    public description : object
-    
-    @prop({
+    },
+    image: { 
+        type: String, 
         required: true,
+    },
+    images: [String],
+    richDescription: String,
+    description: { type: Schema.Types.Mixed },
+    enable: { 
+        type: Boolean, 
+        required: true, 
         default: true
-    })
-    public enable : boolean
+    },
+}, 
+{ 
+    timestamps: true 
+});
 
-    @prop({
-        ref: 'Cart'
-    })
-    public userCartID : Ref<Cart>[]
-
-    @prop({
-        ref: 'Reviews'
-    })
-    public reviewID : Ref<Reviews>[]
-
-    @prop({
-        ref: 'Views'
-    })
-    public viewID : Ref<Views>[]
-
-    @prop({
-        ref: 'QA'
-    })
-    public QAID : Ref<QA>[]
-
-    @prop({
-        ref: 'Brand'
-    })
-    public brandID : Ref<Brand>
-
-    @prop({
-        ref: 'Category'
-    })
-    public categoryID : Ref<Category>
-
-    static async findOrCreate(this : ReturnModelType<typeof Products>, value: object, dataDefault: object ){
-        const productExist = await this.findOne(value);
-        if(!productExist){
-            const product = await this.create(dataDefault);
-            return {
-                created: true,
-                data: product
-            }
-        }else{
-            return{
-                created: false
-            }
-        }
-    }
-}
-
-export const ProductModel = getModelForClass(Products);
+ProductSchema.static('findOrCreate', findOrCreate);
+export const ProductModel = model<IProduct, IProductStatic>('Product', ProductSchema);

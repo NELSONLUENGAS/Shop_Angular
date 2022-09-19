@@ -1,11 +1,12 @@
 import { Request , Response } from 'express';
-import { LineItem, OrderItem, OrdersModel } from '../Models/Orders';
-import { UsersModel } from '../Models/Users';
+import { LineItem, OrderItem } from '../Interface/Order.interface';
+import { OrderModel } from '../Models/Orders';
+import { UserModel } from '../Models/Users';
 import { ProductModel } from '../Models/Products';
 import { Stripe } from 'stripe';
 
-// const STRIPE_SECRET_KEY: string  = process.env.STRIPE_SECRET_KEY as string;
-const STRIPE_SECRET_KEY: string  = 'sk_test_51Lige1Cp3tieVWcOhRcUhoMZU71rkblZpNHzPhUPeYuhkEbCbwnYuuIqTgfGK7kKFhuialfkmcwvRmCuoZyOfuF500XcBEUojL';
+const STRIPE_SECRET_KEY: string  = process.env.STRIPE_SECRET_KEY as string;
+// const STRIPE_SECRET_KEY: string  = 'sk_test_51Lige1Cp3tieVWcOhRcUhoMZU71rkblZpNHzPhUPeYuhkEbCbwnYuuIqTgfGK7kKFhuialfkmcwvRmCuoZyOfuF500XcBEUojL';
 const stripe =  new Stripe(STRIPE_SECRET_KEY, {apiVersion: '2022-08-01', typescript: true});
 
 
@@ -51,7 +52,7 @@ export const PostSessionCheckout = async (req: Request, res: Response) => {
 export const createOrder = async ( req : Request, res : Response) => {
     try{
         if(req.body){
-            const newOrder = await OrdersModel.create(req.body);
+            const newOrder = await OrderModel.create(req.body);
             if(newOrder){
                 res.send(newOrder);
             }else{
@@ -70,11 +71,11 @@ export const getOrders = async ( req : Request, res : Response) => {
         if(name){
             console.log(name);
         }
-        const orders = await OrdersModel.find()
+        const orders = await OrderModel.find()
             .populate({
                 path: 'userID'
             })
-            // for(let user of users){
+            // for(let user of User){
             //     user.roles.length && await user.populate('roles');
             //     user.orders.length && await user.populate('orders');
             //     user.views.length && await user.populate('views');
@@ -95,10 +96,10 @@ export const getOrdersByUser = async ( req : Request, res : Response) => {
     try{
         const { user } = req.query;
         if(user){
-            const existingUser = await UsersModel.findOne({name: user});
+            const existingUser = await UserModel.findOne({name: user});
             if(existingUser){
-                const orders = await OrdersModel.find({userID: existingUser?._id});
-                    // for(let user of users){
+                const orders = await OrderModel.find({userID: existingUser?._id});
+                    // for(let user of User){
                     //     user.roles.length && await user.populate('roles');
                     //     user.orders.length && await user.populate('orders');
                     //     user.views.length && await user.populate('views');
@@ -126,7 +127,7 @@ export const updateOrderStatusById = async ( req : Request, res : Response) => {
         const { status } = req.body;
         const { id } = req.params;
         if(status){
-            const currentOrder = await OrdersModel.findByIdAndUpdate(id, {status: status});
+            const currentOrder = await OrderModel.findByIdAndUpdate(id, {status: status});
             res.send({data: currentOrder});
         }else{
             res.send({msg: 'Status order is required'});
@@ -139,7 +140,7 @@ export const deleteOrderById = async ( req : Request, res : Response) => {
     try{
         const { id } = req.params;
         if(id){
-            const order = await OrdersModel.findByIdAndDelete(id);
+            const order = await OrderModel.findByIdAndDelete(id);
             if(order){
                 res.send({ data: order });
             }else{

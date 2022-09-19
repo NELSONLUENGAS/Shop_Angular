@@ -1,36 +1,22 @@
-import { prop, getModelForClass, modelOptions, ReturnModelType } from '@typegoose/typegoose';
+import { model, Schema } from 'mongoose';
+import { IRole, IRoleStatic } from '../Interface/Role.interface';
+import { findOrCreate } from './Utils/StaticMethod';
 
+const RoleSchema = new Schema<IRole, IRoleStatic>({
+    name: { 
+        type: String, 
+        required: true 
+    },
+    enable: { 
+        type: Boolean, 
+        required: true, 
+        default: true 
+    },
+    icon: String,
+},
+{ 
+    timestamps: true 
+});
 
-@modelOptions({
-    schemaOptions: {
-        versionKey: false,
-        timestamps: true
-    }
-})
-export class Role {
-    @prop()
-    public name : string
-    
-    @prop({
-        required: true,
-        default: true
-    })
-    public enable : boolean
-
-    static async findOrCreate(this : ReturnModelType<typeof Role>, value: object, dataDefault: object ){
-        const RoleExist = await this.findOne(value);
-        if(!RoleExist){
-            const Role = await this.create(dataDefault);
-            return {
-                created: true,
-                data: Role
-            }
-        }else{
-            return{
-                created: false
-            }
-        }
-    }
-}
-
-export const RoleModel = getModelForClass(Role);
+RoleSchema.static('findOrCreate', findOrCreate);
+export const RoleModel = model<IRole, IRoleStatic>('Role', RoleSchema);

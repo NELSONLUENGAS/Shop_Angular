@@ -26,7 +26,7 @@ export const getBrands = async ( req : Request, res : Response) => {
             }else{
                 res.send({ msg: 'brand is not exist'})
             }
-            return;
+            return;  
         }
         const brands = await BrandModel.find();
         if(brands.length){

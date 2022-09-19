@@ -1,47 +1,30 @@
-import { prop, getModelForClass, modelOptions, ReturnModelType, Ref } from '@typegoose/typegoose';
-import { Brand } from './Brand';
+import { Schema, model, Types, } from 'mongoose';
+import { ICategory, ICategoryStatic } from '../Interface/Category.interface';
+import { findOrCreate } from './Utils/StaticMethod';
 
-@modelOptions({
-    schemaOptions: {
-        versionKey: false,
-        timestamps: true
-    }
-})
-export class Category {
-    @prop({
-        required: true
-    })
-    public name : string
-    
-    @prop({
-        required: true,
-        default: true
-    })
-    public enable : boolean
+const CategorySchema = new Schema<ICategory, ICategoryStatic>({
+    name: { 
+        type: String, 
+        required: true 
+    },
+    enable: { 
+        type: Boolean, 
+        required: true, 
+        default: true 
+    },
+    icon: { 
+        type: String,  
+        required: false 
+    },
+    brandID:[{ 
+        type: Types.ObjectId, 
+        required: true, 
+        ref: 'Brand'
+    }],
+}, 
+{ 
+    timestamps: true 
+});
 
-    @prop()
-    public icon : string
-
-    @prop({
-        required: true,
-        ref: () => Brand
-    })
-    public brandID : Ref<Brand>[]
-
-    static async findOrCreate(this : ReturnModelType<typeof Category>, value: object, dataDefault: object ){
-        const categoryExist = await this.findOne(value);
-        if(!categoryExist){
-            const category = await this.create(dataDefault);
-            return {
-                created: true,
-                data: category
-            }
-        }else{
-            return{
-                created: false
-            }
-        }
-    }
-}
-
-export const CategoryModel = getModelForClass(Category);
+CategorySchema.static('findOrCreate', findOrCreate);
+export const CategoryModel = model<ICategory, ICategoryStatic>('Category', CategorySchema);

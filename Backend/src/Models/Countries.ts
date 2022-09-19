@@ -1,37 +1,25 @@
-import { prop, getModelForClass, modelOptions, plugin, defaultClasses, Severity } from '@typegoose/typegoose';
-const findorcreate = require('mongoose-findorcreate');
+import { Schema, model } from 'mongoose';
+import { ICountry, ICountryStatic } from '../Interface/Country.interface';
+import { findOrCreate } from './Utils/StaticMethod';
 
-@modelOptions({
-    schemaOptions: {
-        versionKey: false,
-        timestamps: true
+const CountrySchema = new Schema<ICountry, ICountryStatic>({
+    name: { 
+        type: String, 
+        required: false 
     },
-    options:{
-        allowMixed: Severity.ALLOW,
-    }
-})
+    iso3: { 
+        type: String, 
+        required: true 
+    },
+    flag: String,
+    cities: { 
+        type: [String], 
+        required: false 
+    },
+},
+{ 
+    timestamps: true 
+});
 
-@plugin(findorcreate)
-
-export class Countries extends defaultClasses.FindOrCreate {
-    @prop({
-        required: true
-    })
-    public name : string
-    
-    @prop({
-        required: true
-    })
-    public iso3 : string
-
-    @prop()
-    public flag ?: string
-
-    @prop({
-        required: true
-    })
-    public cities : string[]
-
-}
-
-export const CountriesModel = getModelForClass(Countries);
+CountrySchema.static('findOrCreate', findOrCreate);
+export const CountryModel = model<ICountry, ICountryStatic>('Country', CountrySchema);

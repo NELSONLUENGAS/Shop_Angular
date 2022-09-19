@@ -1,4 +1,4 @@
-import { CountriesModel } from "../Models/Countries"
+import { CountryModel } from "../Models/Countries"
 import axios from 'axios';
 
 export const loadCountries = async ()=> {
@@ -6,7 +6,7 @@ export const loadCountries = async ()=> {
     const countriesDetails = await axios('https://countriesnow.space/api/v0.1/countries');
 
     for(let country of countriesDetails.data.data){
-        await CountriesModel.findOrCreate(
+        await CountryModel.findOrCreate(
             {
                 name: country.country
             },
@@ -18,6 +18,6 @@ export const loadCountries = async ()=> {
     }
 
     for(let country of countriesImages.data.data){
-        await CountriesModel.findOneAndUpdate({name: country.name},{flag: country.flag});
+        await CountryModel.findOneAndUpdate({name: country.name},{flag: country.flag});
     }
 }

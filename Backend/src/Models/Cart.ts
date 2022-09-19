@@ -1,24 +1,26 @@
-import { prop, getModelForClass, modelOptions, Ref } from '@typegoose/typegoose';
-import { User } from './Users';
-import { Products } from './Products';
+import { Schema, model, Types } from 'mongoose';
+import { ICart, ICartStatic } from '../Interface/Cart.interface';
+import { findOrCreate } from './Utils/StaticMethod';
 
-@modelOptions({
-    schemaOptions: {
-        versionKey: false
-    }
-})
-export class Cart {
-    @prop({
-        required: true,
-        ref: 'Products'
-    })
-    public productID : Ref<Products>[]
-
-    @prop({
-        required: true,
+const CartSchema = new Schema<ICart, ICartStatic>({
+    quantity: { 
+        type: Number, 
+        required: true 
+    },
+    userID: { 
+        type: Types.ObjectId, 
+        required: true, 
         ref: 'User'
-    })
-    public userID: Ref<User>
-}
+    },
+    productID: { 
+        type: Types.ObjectId || [Types.ObjectId], 
+        required: true,  
+        ref: 'Product'
+    },
+},   
+{ 
+    timestamps: true 
+});
 
-export const CartModel = getModelForClass(Cart);
+CartSchema.static('findOrCreate', findOrCreate);
+export const CartModel = model<ICart, ICartStatic>('cart', CartSchema);

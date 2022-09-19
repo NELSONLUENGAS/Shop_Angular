@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { CountriesModel } from "../Models/Countries";
+import { CountryModel } from "../Models/Countries";
 
 export const getCountries = async (req: Request, res: Response, next: NextFunction) => {
     try{
-        const countries  = await CountriesModel.find();
+        const countries  = await CountryModel.find();
         console.log(req.body)
         if(countries.length){
             res.send(countries);

@@ -7,7 +7,8 @@ export const createRole = async (req : Request, res : Response ) => {
         const { role } =  req.body;
         if(role){
             const newRole = await RoleModel.findOrCreate({name: role.name}, role);
-            if(newRole.created){
+            console.log(newRole)
+            if(newRole){
                 res.send({data: newRole});
             }else{
                 res.send({msg: 'Existing role'});

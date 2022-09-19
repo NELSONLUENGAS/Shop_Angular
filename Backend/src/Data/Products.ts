@@ -12,10 +12,6 @@ export const ProductsData = [
             procesador: '2.4GHz,2GHz',
             ram: '6GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c46814c64bf6bdfda3c6d4',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -32,10 +28,6 @@ export const ProductsData = [
             procesador: '2GHz,1.8GHz',
             ram: '4GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c46814c64bf6bdfda3c6d4',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -52,10 +44,6 @@ export const ProductsData = [
             procesador: '2.4 GHz',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c46814c64bf6bdfda3c6d4',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -72,10 +60,6 @@ export const ProductsData = [
             procesador: '1.6GHz',
             ram: '3GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c46814c64bf6bdfda3c6d4',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -92,10 +76,6 @@ export const ProductsData = [
             procesador: '2.2GHz,1.8GHz',
             ram: '4GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c46814c64bf6bdfda3c6d4',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -112,10 +92,6 @@ export const ProductsData = [
             procesador: '2.2GHz,1.8GHz',
             ram: '6GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c468c2bc18d79021cf99aa',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -132,10 +108,6 @@ export const ProductsData = [
             procesador: '2.4GHz',
             ram: '6GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c468c2bc18d79021cf99aa',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -152,10 +124,7 @@ export const ProductsData = [
             procesador: '2.4GHz',
             ram: '4GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
+
         brandID: '62c46a9b4016644fc44b7f21',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -172,10 +141,6 @@ export const ProductsData = [
             procesador: '2.4GHz',
             ram: '6GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c46a9b4016644fc44b7f21',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -192,10 +157,6 @@ export const ProductsData = [
             procesador: '2.2GHz',
             ram: '6GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48141a0940ed591bbbb1b',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -212,10 +173,6 @@ export const ProductsData = [
             procesador: '2GHz',
             ram: '4GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48141a0940ed591bbbb1b',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -232,10 +189,6 @@ export const ProductsData = [
             procesador: '2.4GHz',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c483bdaf54b97a3cf91a38',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -252,10 +205,6 @@ export const ProductsData = [
             procesador: '2.2GHz',
             ram: '4GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c483bdaf54b97a3cf91a38',
         categoryID: '62c46cea3dadeb337bed8e0e',
     }, 
@@ -272,10 +221,6 @@ export const ProductsData = [
             procesador: 'Intel Core i5-1240U de 12.ª',
             ram: '16GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48acbbe2e1277d3b38b0b',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -292,10 +237,6 @@ export const ProductsData = [
             procesador: 'Intel Core i5-12600H vPro',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48acbbe2e1277d3b38b0b',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -312,10 +253,6 @@ export const ProductsData = [
             procesador: 'Intel® Core™ i3-1005G1',
             ram: '16GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48acbbe2e1277d3b38b0e',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -332,10 +269,6 @@ export const ProductsData = [
             procesador: 'AMD Ryzen™ 7 ',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48acbbe2e1277d3b38b0e',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -352,10 +285,6 @@ export const ProductsData = [
             procesador: 'Intel Core i5-12450H ',
             ram: '16GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48acbbe2e1277d3b38b11',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -372,10 +301,6 @@ export const ProductsData = [
             procesador: ' Intel® Core™ i7-10870H',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48acbbe2e1277d3b38b11',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -392,10 +317,6 @@ export const ProductsData = [
             procesador: 'Intel® Core™ i5 de 11.ª',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48accbe2e1277d3b38b14',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -412,10 +333,6 @@ export const ProductsData = [
             procesador: 'Intel® Core™ i5 de 11.ª',
             ram: '8GB'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48accbe2e1277d3b38b14',
         categoryID: '62c492ae438928478cb8d977',
     }, 
@@ -427,10 +344,6 @@ export const ProductsData = [
         description: {
             text: 'Freidora de aire para preparar tus mejores recetas al estilo gourtmet'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48ce8d3d8fe7f3a960d8e',
         categoryID: '62c492ae438928478cb8d97a',
     }, 
@@ -442,10 +355,6 @@ export const ProductsData = [
         description: {
             text: 'Multi-Horno de aire especial para preprar tus recetas de navidad, tortas, pasteles, y muchas recetas más'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48ce8d3d8fe7f3a960d8e',
         categoryID: '62c492ae438928478cb8d97a',
     }, 
@@ -457,10 +366,6 @@ export const ProductsData = [
         description: {
             text: 'Esencial para tus asados y paseos con la familia y amigos, podras preparar las tus mejores recetas de carnes'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48ce8d3d8fe7f3a960d8e',
         categoryID: '62c492ae438928478cb8d97a',
     }, 
@@ -472,10 +377,6 @@ export const ProductsData = [
         description: {
             text: 'Ensencial para preparar tus bocadillos preferidos al estilo sandwich'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48ce8d3d8fe7f3a960d8e',
         categoryID: '62c492ae438928478cb8d97a',
     }, 
@@ -487,10 +388,6 @@ export const ProductsData = [
         description: {
             text: 'Con ella podras disfrutar pronto de un rico café, cual se de tu preferencia'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48ce8d3d8fe7f3a960d8e',
         categoryID: '62c492ae438928478cb8d97a',
     }, 
@@ -502,10 +399,6 @@ export const ProductsData = [
         description: {
             text: 'Especial para lipiar tu hogar, el césped y hasta tu coche'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48f39d7deb4c76ffef7d6',
         categoryID: '62c492ae438928478cb8d97d',
     }, 
@@ -517,10 +410,6 @@ export const ProductsData = [
         description: {
             text: 'Especial para arreglos en casa, portatil y de mucha ayuda'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48f39d7deb4c76ffef7d6',
         categoryID: '62c492ae438928478cb8d97d',
     }, 
@@ -532,10 +421,6 @@ export const ProductsData = [
         description: {
             text: 'El Taladro deRotación DWD010 cuenta con un potente motor de 380W y alta velocidad variable y con opción de reversa, permitiendo realizar una amplia gama de aplicaciones'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48f3ad7deb4c76ffef7d9',
         categoryID: '62c492ae438928478cb8d97d',
     }, 
@@ -547,10 +432,6 @@ export const ProductsData = [
         description: {
             text: 'La Lijadora Roto Orbital de 5" (127 mm) 20V MAX* tiene un recubrimiento de goma para más comodidad y menor fatiga. Su ergonomía del mango mejorada antideslizante ayuda a tener un mejor agarre y menor fatiga'
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48f3ad7deb4c76ffef7d9',
         categoryID: '62c492ae438928478cb8d97d',
     }, 
@@ -564,10 +445,6 @@ export const ProductsData = [
             Guarda auto-retráctil para máxima seguridad
             9 posiciones de inglete pre-determinadas para cortes más precisos y rápidos`
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48f732938ceea60d550c0',
         categoryID: '62c492ae438928478cb8d97d',
     }, 
@@ -579,10 +456,6 @@ export const ProductsData = [
         description: {
             text: `Poderoso motor de 1000W de alta eficiencia Mango alargado para mayor efecto palanca y control en aplicaciones de esmerilado pesado Diseño ergonómico, para trabajar con comodidad por más tiempo`
         },
-        userCartID: [],
-        reviewID: [],
-        viewID: [],
-        QAID: [],
         brandID: '62c48f732938ceea60d550c0',
         categoryID: '62c492ae438928478cb8d97d',
     }, 

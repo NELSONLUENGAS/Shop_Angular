@@ -2,11 +2,12 @@ import { connect } from "mongoose";
 import { loadDataBase } from './Services/loadDataBase';
 import { loadCountries } from './Services/loadCountries';
 
-connect('mongodb+srv://nelsonluengas:Hola12345@cluster0.e3vxs.mongodb.net/ecommerce_udemy')
+const { DATABASE_CONNECTION } = process.env;
+connect(DATABASE_CONNECTION as string)
     .then((db) => {
-        console.log('Db is redy...', db.connection.name);
         loadDataBase();
         loadCountries();
+        console.log('Db is redy...', db.connection.name);
     })
     .catch((error) => {
         console.log(error);

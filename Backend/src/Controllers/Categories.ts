@@ -7,8 +7,9 @@ export const createCategory = async ( req : Request, res : Response) => {
         const { category, brandID } = req.body
         if(category){
             const newCategory = await CategoryModel.findOrCreate({name: category.name}, category);
+            console.log(newCategory)
             const categoryCreated = await CategoryModel.find().where({name: category.name})
-            if(newCategory?.created && categoryCreated && brandID?.length){
+            if(newCategory && categoryCreated && brandID?.length){
                 const arrayBrandID = [];
                 for(let brand of brandID){
                     const currentBrand = await BrandModel.find({name: brand});

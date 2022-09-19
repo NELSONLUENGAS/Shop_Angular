@@ -15,7 +15,7 @@ export const createProduct = async ( req : Request, res : Response) => {
                 brandID: req.body?.brand,
                 categoryID: req.body?.category
             });
-            if(newProduct.created){
+            if(newProduct){
                 res.send({data: newProduct});
             }else{
                 res.send({msg: 'Existing product'});

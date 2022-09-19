@@ -1,41 +1,22 @@
-import { prop, getModelForClass, modelOptions, ReturnModelType } from '@typegoose/typegoose';
+import { Schema, model } from 'mongoose';
+import { IBrand, IBrandStatic } from '../Interface/Brand.interface';
+import { findOrCreate } from './Utils/StaticMethod';
 
+const BrandSchema = new Schema<IBrand, IBrandStatic>({
+    name: { 
+        type: String, 
+        required: true 
+    },
+    enable: { 
+        type: Boolean, 
+        required: true, 
+        default: true 
+    },
+    icon: String,
+},
+{ 
+    timestamps: true 
+});
 
-@modelOptions({
-    schemaOptions: {
-        versionKey: false,
-        timestamps: true
-    }
-})
-export class Brand {
-    @prop({
-        required: true
-    })
-    public name : string
-    
-    @prop({
-        required: true,
-        default: true
-    })
-    public enable : boolean
-
-    @prop()
-    public icon : string
-
-    static async findOrCreate(this : ReturnModelType<typeof Brand>, value: object, dataDefault: object ){
-        const BrandExist = await this.findOne(value);
-        if(!BrandExist){
-            const Brand = await this.create(dataDefault);
-            return {
-                created: true,
-                data: Brand
-            }
-        }else{
-            return{
-                created: false
-            }
-        }
-    }
-}
-
-export const BrandModel = getModelForClass(Brand);
+BrandSchema.static('findOrCreate', findOrCreate);
+export const BrandModel = model<IBrand, IBrandStatic>('Brand', BrandSchema);

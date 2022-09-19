@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UsersModel } from "../Models/Users";
-import { RoleModel } from "../Models/Roles";
+import { UserModel } from "../Models/Users";
+// import { RoleModel } from "../Models/Roles";
 import bcrypt from 'bcryptjs';
 import jwt, { Secret } from 'jsonwebtoken';
 
@@ -9,21 +9,25 @@ export const Login = async (req: Request, res: Response)=> {
     const SECRET = process.env['SECRET'] as Secret;
     try{
         if(req.body){
-            const UserExist = await UsersModel.findOne({ email: req.body?.email });
+            const UserExist = await UserModel.findOne({ email: req.body?.email })
+                .populate('roles');
             if(!UserExist){
                 res.send({msg: "You don't have an account, Please register"});
             }else{
                 if(UserExist && bcrypt.compareSync(req.body.password, UserExist.password)){
                     let isAdmin;
-                    for(let role of UserExist?.roles){
-                        const roleName = await RoleModel.findById(role);
-                        if(roleName?.name === 'superAdmin' || roleName?.name === 'admin'){
-                            isAdmin = true;
-                        }else{
-                            isAdmin = false;
-                        }
+                    if(UserExist.roles){
+                        console.log(UserExist)
+                        // for(let role of UserExist.roles){
+                        //     const roleName = await RoleModel.findById(role);
+                        //     if(roleName?.name === 'superAdmin' || roleName?.name === 'admin'){
+                        //         isAdmin = true;
+                        //     }else{
+                        //         isAdmin = false;
+                        //     }
+                        
                     }
-                    await UsersModel.findByIdAndUpdate(UserExist._id,{
+                    await UserModel.findByIdAndUpdate(UserExist._id,{
                         login: true
                     })
                     const token: string = jwt.sign({
