@@ -4,7 +4,7 @@ import { ProductModel } from '../Models/Products';
 export const createProduct = async ( req : Request, res : Response) => {
     try{
         const fileName = req.file?.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/Public/Upload/${fileName}`
+        const basePath = `https://${req.get('host')}/public/upload/${fileName}`
         if(req.body){
             const newProduct = await ProductModel.findOrCreate({name: req.body?.name}, {
                 name: req.body?.name,
@@ -15,6 +15,8 @@ export const createProduct = async ( req : Request, res : Response) => {
                 brandID: req.body?.brand,
                 categoryID: req.body?.category
             });
+            console.log(newProduct)
+            console.log(req.protocol)
             if(newProduct){
                 res.send({data: newProduct});
             }else{
@@ -83,7 +85,8 @@ export const updateProductById = async ( req : Request, res : Response) => {
     try{
         const { id } = req.params;
         const fileName = req.file?.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/Public/Upload/${fileName}`
+        console.log(req.protocol)
+        const basePath = `https://${req.get('host')}/public/upload/${fileName}`
         if(fileName){
             // console.log(basePath)
             await ProductModel.findByIdAndUpdate(id, {

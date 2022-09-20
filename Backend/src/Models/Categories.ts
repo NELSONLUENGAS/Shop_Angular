@@ -1,6 +1,6 @@
 import { Schema, model, Types, } from 'mongoose';
 import { ICategory, ICategoryStatic } from '../Interface/Category.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const CategorySchema = new Schema<ICategory, ICategoryStatic>({
     name: { 

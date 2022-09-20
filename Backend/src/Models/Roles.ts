@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose';
 import { IRole, IRoleStatic } from '../Interface/Role.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const RoleSchema = new Schema<IRole, IRoleStatic>({
     name: { 

@@ -1,6 +1,6 @@
 import { Schema, model, Types, } from 'mongoose';
 import { IUser, IUsertatic } from '../Interface/User.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const Userchema = new Schema<IUser, IUsertatic>({
     firstname: { 

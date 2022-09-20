@@ -80,7 +80,7 @@ export const updateCategoryById = async ( req : Request, res : Response) => {
         const { id } = req.params;
         const { category, brandID } = req.body; 
         const fileName = req.file?.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/Public/Upload/${fileName}`
+        const basePath = `https://${req.get('host')}/public/upload/${fileName}`
         if(id){
             await CategoryModel.findByIdAndUpdate(id,{name: category?.name, icon: basePath} );
             if(brandID?.length){

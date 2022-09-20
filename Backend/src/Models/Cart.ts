@@ -1,6 +1,6 @@
 import { Schema, model, Types } from 'mongoose';
 import { ICart, ICartStatic } from '../Interface/Cart.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const CartSchema = new Schema<ICart, ICartStatic>({
     quantity: { 

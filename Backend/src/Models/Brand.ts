@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { IBrand, IBrandStatic } from '../Interface/Brand.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const BrandSchema = new Schema<IBrand, IBrandStatic>({
     name: { 

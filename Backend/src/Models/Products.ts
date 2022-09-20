@@ -1,6 +1,6 @@
 import { Schema, model, Types, } from 'mongoose';
 import { IProduct, IProductStatic } from '../Interface/Product.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const ProductSchema = new Schema<IProduct, IProductStatic>({
     brandID: { 

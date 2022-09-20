@@ -1,6 +1,6 @@
 import { Schema, model, Types, } from 'mongoose';
 import { IOrder, IOrderStatic, Status } from '../Interface/Order.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const OrderSchema = new Schema<IOrder, IOrderStatic>({
     userID: { 

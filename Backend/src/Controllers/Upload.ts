@@ -9,7 +9,7 @@ const FYLE_TYPE_MAP : any = {
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         if(req && file){
-            cb(null, 'src/public/upload')
+            cb(null, 'dist/src/public/upload')
         }
     },
     filename: function (req, file, cb) {

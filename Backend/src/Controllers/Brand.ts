@@ -62,7 +62,7 @@ export const getBrandById = async ( req : Request, res : Response) => {
 export const updateBrandById = async ( req : Request, res : Response) => {
     try{
         const fileName = req.file?.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/Public/Upload/${fileName}`
+        const basePath = `https://${req.get('host')}/public/upload/${fileName}`
         const { id } = req.params;
         const { name } = req.body;  
         if(id){

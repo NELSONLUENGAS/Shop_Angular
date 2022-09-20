@@ -3,6 +3,7 @@ import { UserModel } from "../Models/Users";
 // import { RoleModel } from "../Models/Roles";
 import bcrypt from 'bcryptjs';
 import jwt, { Secret } from 'jsonwebtoken';
+import { RoleModel } from "../Models/Roles";
 
 
 export const Login = async (req: Request, res: Response)=> {
@@ -16,16 +17,16 @@ export const Login = async (req: Request, res: Response)=> {
             }else{
                 if(UserExist && bcrypt.compareSync(req.body.password, UserExist.password)){
                     let isAdmin;
+                    const roles : any = UserExist.roles;
                     if(UserExist.roles){
-                        console.log(UserExist)
-                        // for(let role of UserExist.roles){
-                        //     const roleName = await RoleModel.findById(role);
-                        //     if(roleName?.name === 'superAdmin' || roleName?.name === 'admin'){
-                        //         isAdmin = true;
-                        //     }else{
-                        //         isAdmin = false;
-                        //     }
-                        
+                        for(let role of roles){
+                            const roleName = await RoleModel.findById(role);
+                            if(roleName?.name === 'superAdmin' || roleName?.name === 'admin'){
+                                isAdmin = true;
+                            }else{
+                                isAdmin = false;
+                            }
+                        }
                     }
                     await UserModel.findByIdAndUpdate(UserExist._id,{
                         login: true

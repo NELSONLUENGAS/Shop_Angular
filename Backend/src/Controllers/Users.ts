@@ -92,7 +92,7 @@ export const updateUserById = async ( req : Request, res : Response) => {
     try{
         const { id } = req.params;
         const filename = req.file?.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/Public/Upload/${filename}`
+        const basePath = `https://${req.get('host')}/public/upload/${filename}`
         if(req.body){
             if(basePath){
                 await UserModel.findByIdAndUpdate(id,{

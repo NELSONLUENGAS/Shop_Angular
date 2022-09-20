@@ -6,7 +6,6 @@ import { ProductModel } from '../Models/Products';
 import { Stripe } from 'stripe';
 
 const STRIPE_SECRET_KEY: string  = process.env.STRIPE_SECRET_KEY as string;
-// const STRIPE_SECRET_KEY: string  = 'sk_test_51Lige1Cp3tieVWcOhRcUhoMZU71rkblZpNHzPhUPeYuhkEbCbwnYuuIqTgfGK7kKFhuialfkmcwvRmCuoZyOfuF500XcBEUojL';
 const stripe =  new Stripe(STRIPE_SECRET_KEY, {apiVersion: '2022-08-01', typescript: true});
 
 
@@ -16,7 +15,7 @@ export const PostSessionCheckout = async (req: Request, res: Response) => {
         if(!orderItems?.length){
             res.send('Order Items is required');
         }else{
-            const line_items: LineItem[] = await Promise.all(
+            const line_items: LineItem[] = await  Promise.all(
                 orderItems.map(async (orderItem: OrderItem) => {
                     const product = await ProductModel.findById(orderItem.productId);
                     if(product){
@@ -35,15 +34,18 @@ export const PostSessionCheckout = async (req: Request, res: Response) => {
                     return;
                 })
             );
-    
-            const session = await stripe.checkout.sessions.create({
-                payment_method_types: ['card'],
-                success_url: 'http://localhost:4200/success',
-                cancel_url: 'http://localhost:4200',
-                mode: 'payment',
-                line_items: line_items
-            })
-            res.send({id: session.id});
+            if(typeof line_items[0] === 'object'){
+                const session = await stripe.checkout.sessions.create({
+                    payment_method_types: ['card'],
+                    success_url: 'http://localhost:4200/success',
+                    cancel_url: 'http://localhost:4200',
+                    mode: 'payment',
+                    line_items: line_items
+                })
+                res.send({id: session.id});
+            }else{
+                res.send('Order Items is required or products dont exist');
+            }
         }
     }catch(error){
         console.log(error)
@@ -73,7 +75,8 @@ export const getOrders = async ( req : Request, res : Response) => {
         }
         const orders = await OrderModel.find()
             .populate({
-                path: 'userID'
+                path: 'userID',
+                select: '-password'
             })
             // for(let user of User){
             //     user.roles.length && await user.populate('roles');

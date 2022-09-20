@@ -47,6 +47,8 @@ export const AuthJWT = () => {
             },
             '/user/register',
             '/user/login',
+            /\/public\/upload(.*)/,
+
         ]
     })
 }

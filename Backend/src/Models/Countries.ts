@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { ICountry, ICountryStatic } from '../Interface/Country.interface';
-import { findOrCreate } from './Utils/StaticMethod';
+import { findOrCreate } from '../Helpers/StaticMethod';
 
 const CountrySchema = new Schema<ICountry, ICountryStatic>({
     name: { 
