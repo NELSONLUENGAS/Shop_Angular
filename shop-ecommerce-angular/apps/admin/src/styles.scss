@@ -1,0 +1,16 @@
+/*Base*/
+@import './app/app.component.scss';
+
+/*External*/
+@import 'primeicons/primeicons.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeng/resources/themes/lara-dark-teal/theme.css';
+@import 'primeflex/primeflex.scss';
+
+/*Libs*/
+@import '../../../libs/users/src/lib/Pages/login/login.component.scss';
+
+/*Root*/
+*{
+    margin: 0;
+}

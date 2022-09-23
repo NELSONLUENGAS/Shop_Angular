@@ -11,6 +11,7 @@ export const loadCountries = async ()=> {
                 name: country.country
             },
             {
+                name: country.country,
                 iso3: country.iso3,
                 cities: country.cities
             }
