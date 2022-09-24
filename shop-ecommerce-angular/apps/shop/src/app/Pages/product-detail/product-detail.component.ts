@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '@shop-ecommerce-angular/orders';
 import { ProductService } from '@shop-ecommerce-angular/products';
-import { Products } from 'libs/products/src/lib/Interface/Product.interface';
+import { Products } from '@shop-ecommerce-angular/products';
 import { MessageService } from 'primeng/api';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CartItem } from 'libs/orders/src/lib/interface/Cart.interface';
+import { CartItem } from '@shop-ecommerce-angular/orders';
 
 @Component({
   selector: 'shop-product-detail',

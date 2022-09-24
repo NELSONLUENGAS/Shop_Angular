@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandService, CategoryService } from '@shop-ecommerce-angular/products';
-import { brandModel } from 'libs/products/src/lib/Interface/Brand.interface';
-import { Category } from 'libs/products/src/lib/Interface/Category.interface';
+import { brandModel, Category } from '@shop-ecommerce-angular/products';
+
 
 @Component({
   selector: 'ui-slider',

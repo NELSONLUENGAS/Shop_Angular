@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@shop-ecommerce-angular/users';
-import { LoginComponent } from 'libs/users/src/lib/Pages/login/login.component';
+import { LoginComponent } from '@shop-ecommerce-angular/users';
 import { BrandsFormComponent } from './Brands/brands-form/brands-form.component';
 import { BrandsListComponent } from './Brands/brands-list/brands-list.component';
 import { CategoriesFormComponent } from './Categories/categories-form/categories-form.component';

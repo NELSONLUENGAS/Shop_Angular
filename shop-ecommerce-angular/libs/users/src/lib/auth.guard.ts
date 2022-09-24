@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
-import { LocalStorageService } from '@shop-ecommerce-angular/users';
+import { LocalStorageService } from './Services/local-storage.service';
 
 @Injectable({
   providedIn: 'root'

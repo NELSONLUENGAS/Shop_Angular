@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '@shop-ecommerce-angular/orders';
-import { CartItem } from 'libs/orders/src/lib/interface/Cart.interface';
-import { Products } from 'libs/products/src/lib/Interface/Product.interface';
+import { CartItem } from '@shop-ecommerce-angular/orders';
+import { Products } from '@shop-ecommerce-angular/products';
 import {  MessageService } from 'primeng/api';
 
 @Component({

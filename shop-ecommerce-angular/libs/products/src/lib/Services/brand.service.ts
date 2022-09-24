@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../../apps/shop/src/environments/environment';
+import { environment } from '../environments/environment';
 import { BrandResponse } from '../Interface/Category.interface';
 import { brandModel, brandOneResponse, brandResponseBody } from '../Interface/Brand.interface';
 

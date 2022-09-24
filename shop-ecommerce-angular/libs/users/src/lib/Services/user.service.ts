@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { enableUser, getUsersResponse, User } from '../interface/users.interface';
-import { environment } from '../../../../../apps/shop/src/environments/environment';
+import { environment } from '../environments/environment';
 import { UsersFacade } from '../state/users.facade';
 import { Router } from '@angular/router';
 
