@@ -31,7 +31,7 @@
       "projectType": "library",
       "root": "libs/products",
       "sourceRoot": "libs/products/src",
-      "prefix": "shop-ecommerce-angular",
+      "prefix": "products",
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
