@@ -40,5 +40,6 @@ const reducer = createReducer(
 );
 
 export function usersReducer(state: UsersState | undefined, action: Action) {
+  // console.log(state, action)
   return reducer(state, action);
 }
