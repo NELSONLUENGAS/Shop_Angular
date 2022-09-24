@@ -43,9 +43,9 @@ export class LoginComponent implements OnInit {
     if(token){
       const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
       if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        this.router.navigateByUrl('admin');
+        this.router.navigateByUrl('https://shop-angular-admin.vercel.app');
       }else if(!tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('https://shop-angular-shop-ecommerce-angular-n93j.vercel.app');
       }
     }else{
       this.router.navigateByUrl('login');
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
         const isAdmin = JSON.parse(window.atob(user.token.split('.')[1])).isAdmin;
         timer(2000).subscribe(() =>{
           this.display = false;
-          this.router.navigateByUrl(isAdmin ? '/' : '/login');
+          this.router.navigateByUrl(isAdmin ? '/admin' : '/login');
         })
       }else{
         this.display = false;
