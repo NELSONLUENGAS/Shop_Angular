@@ -9,3 +9,5 @@ export * from './lib/Services/local-storage.service';
 export * from './lib/Services/user.service';
 export * from './lib/Services/jwt.interceptor';
 export * from './lib/auth.guard';
+export * from './lib/interface/users.interface';
+export * from './lib/Pages/login/login.component';

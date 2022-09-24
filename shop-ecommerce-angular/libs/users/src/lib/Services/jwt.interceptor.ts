@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
-import { environment } from '../../../../../apps/shop/src/environments/environment';
+import { environment } from '../environments/environment';
 
 const { apiURL, STRIPE_SECRET_KEY } = environment;
 

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '@shop-ecommerce-angular/products';
 import { UserService } from '@shop-ecommerce-angular/users';
 import { MessageService } from 'primeng/api';
-import { Cart } from 'libs/orders/src/lib/interface/Cart.interface';
+import { Cart } from '@shop-ecommerce-angular/orders';
 
 @Component({
   selector: 'shop-checkout-page',

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { countries } from '../interface/Countries.interface';
-import { environment } from '../../../../../apps/shop/src/environments/environment';
+import { environment } from '../environments/environment';
 
 const { apiURL } = environment;
 

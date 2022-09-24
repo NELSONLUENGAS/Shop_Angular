@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '@shop-ecommerce-angular/products';
-import { Products } from 'libs/products/src/lib/Interface/Product.interface';
+import { Products } from '@shop-ecommerce-angular/products';
 
 @Component({
   selector: 'shop-featured-products',

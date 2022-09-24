@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoriesResponse, CategoryResponse, PostCategory, PostCategoryResponse } from '../Interface/Category.interface';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../../apps/shop/src/environments/environment';
+import { environment } from '../environments/environment';
 
 const { apiURL } = environment;
 

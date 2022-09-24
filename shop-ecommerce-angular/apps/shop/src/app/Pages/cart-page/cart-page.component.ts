@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CartItem } from 'libs/orders/src/lib/interface/Cart.interface';
+import { CartItem } from '@shop-ecommerce-angular/orders';
 import { Subject } from 'rxjs';
 import { MessageService, ConfirmEventType, ConfirmationService } from 'primeng/api';
 import { CartService } from '@shop-ecommerce-angular/orders';
 import { ProductService } from '@shop-ecommerce-angular/products';
 import { Router } from '@angular/router';
-import { Products } from 'libs/products/src/lib/Interface/Product.interface';
+import { Products } from '@shop-ecommerce-angular/products';
 
 
 @Component({

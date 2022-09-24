@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'libs/products/src/lib/Interface/Category.interface';
-import { Products } from 'libs/products/src/lib/Interface/Product.interface';
+import { Category } from '@shop-ecommerce-angular/products';
+import { Products } from '@shop-ecommerce-angular/products';
 import { ActivatedRoute } from '@angular/router';
 import { BrandService, CategoryService, ProductService } from '@shop-ecommerce-angular/products';
 
