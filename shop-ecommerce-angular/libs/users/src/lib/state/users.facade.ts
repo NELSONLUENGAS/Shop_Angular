@@ -9,7 +9,7 @@ export class UsersFacade {
   currentUser$ =  this.store.pipe(select(UsersSelectors.getUser));
   isAuthenticated$ =  this.store.pipe(select(UsersSelectors.getUserIsAuth));
 
-  constructor(private readonly store: Store) {}
+  constructor(private store: Store) {}
 
   buildUsersSession() {
     this.store.dispatch(UsersActions.buildUsersSession());

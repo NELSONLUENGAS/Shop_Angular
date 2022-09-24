@@ -46,6 +46,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrandService, CategoryService, ProductService } from '@shop-ecommerce-angular/products';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, UserService, UsersModule } from '@shop-ecommerce-angular/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 const UX_MODULE = [
@@ -99,6 +102,11 @@ const UX_MODULE = [
     ReactiveFormsModule,
     HttpClientModule,
     UsersModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 5
+    })
   ],
   providers: [
     MessageService,
