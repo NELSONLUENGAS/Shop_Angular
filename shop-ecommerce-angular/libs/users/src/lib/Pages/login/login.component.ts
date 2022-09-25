@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     const token = this.LocalStaorageService.getItem('token');
     if(token){
       const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
-      console.log(tokenDecode.isAdmin)
+      // console.log(tokenDecode.isAdmin)
       if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
         // console.log(tokenDecode) 
         // window.location.href = 'https://shop-angular-admin.vercel.app';
