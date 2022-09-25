@@ -43,14 +43,13 @@ export class LoginComponent implements OnInit {
     if(token){
       const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
       if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        return window.location.href = 'https://shop-angular-admin.vercel.app/products';
+        window.location.href = 'https://shop-angular-admin.vercel.app';
       }else if(!tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        return window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
+        window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
       }
     }else{
-      return this.router.navigateByUrl('login');
+      this.router.navigateByUrl('login');
     }
-    return;
   }
 
   private _tokenExpired(expired: number): boolean{
@@ -72,7 +71,7 @@ export class LoginComponent implements OnInit {
         const isAdmin = JSON.parse(window.atob(user.token.split('.')[1])).isAdmin;
         timer(2000).subscribe(() =>{
           this.display = false;
-          this.router.navigateByUrl(isAdmin ? '/admin' : '/login');
+          isAdmin ? window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app' : window.location.href = 'https://shop-angular-admin.vercel.app';
         })
       }else{
         this.display = false;
