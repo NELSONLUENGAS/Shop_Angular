@@ -40,15 +40,15 @@ export class LoginComponent implements OnInit {
 
   private _checkSessionActive(){
     const token = this.LocalStaorageService.getItem('token');
-    if(token){
-      const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
-      console.log(tokenDecode.isAdmin)
-      if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        window.location.href = 'https://shop-angular-admin.vercel.app';
-      }else if(!tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
-      }
-    }
+    // if(token){
+    //   const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
+    //   console.log(tokenDecode.isAdmin)
+    //   if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
+    //     window.location.href = 'https://shop-angular-admin.vercel.app';
+    //   }else if(!tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
+    //     window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
+    //   }
+    // }
     console.log(token) 
   }
 
