@@ -43,13 +43,14 @@ export class LoginComponent implements OnInit {
     if(token){
       const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
       if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        window.location.href = 'https://shop-angular-admin.vercel.app/products';
+        return window.location.href = 'https://shop-angular-admin.vercel.app/products';
       }else if(!tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
-        window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
+        return window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
       }
     }else{
-      this.router.navigateByUrl('login');
+      return this.router.navigateByUrl('login');
     }
+    return;
   }
 
   private _tokenExpired(expired: number): boolean{
