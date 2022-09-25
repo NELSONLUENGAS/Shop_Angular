@@ -57,7 +57,7 @@ export class CheckoutPageComponent implements OnInit {
     this.usersService
       .observeCurrentUser()
       .subscribe( user => {
-        console.log(user)
+        // console.log(user)
         if(user){
           this.userId = user._id;
           this.checkoutForm['name'].setValue(user.firstname);
