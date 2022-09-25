@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
       }
     }
     console.log(token) 
-
   }
 
   private _tokenExpired(expired: number): boolean{
