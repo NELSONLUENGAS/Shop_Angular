@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { LocalStorageService } from '../../Services/local-storage.service';
 import { MessageService } from 'primeng/api';
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private authService: AuthService,
     private messageService: MessageService,
-    private router: Router,
+    private route: ActivatedRoute,
     private LocalStaorageService: LocalStorageService
     ) { }
 
@@ -42,13 +42,14 @@ export class LoginComponent implements OnInit {
     const token = this.LocalStaorageService.getItem('token');
     if(token){
       const tokenDecode = JSON.parse(window.atob(token.split('.')[1]));
+      // console.log(tokenDecode.isAdmin)
       if(tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
         window.location.href = 'https://shop-angular-admin.vercel.app';
       }else if(!tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)){
         window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app';
       }
     }else{
-      this.router.navigateByUrl('login');
+      this.route.queryParams.subscribe( params => console.log(params))
     }
   }
 
@@ -71,7 +72,7 @@ export class LoginComponent implements OnInit {
         const isAdmin = JSON.parse(window.atob(user.token.split('.')[1])).isAdmin;
         timer(2000).subscribe(() =>{
           this.display = false;
-          !isAdmin ? window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app' : window.location.href = 'https://shop-angular-admin.vercel.app';
+          !isAdmin ? window.location.href = `https://shop-angular-shop-ecommerce-angular-n93j.vercel.app?isAdmin=${false}` : window.location.href = `https://shop-angular-admin.vercel.app?isAdmin=${true}`;
         })
       }else{
         this.display = false;
