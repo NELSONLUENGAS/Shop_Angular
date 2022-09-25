@@ -21,7 +21,6 @@ export class AuthGuard implements CanActivate {
         return true;
       }else if(!tokenDecode.isAdmin  || tokenDecode.isAdmin ){
         if(!this._tokenExpired(tokenDecode.exp) && route.routeConfig?.path === 'checkout'){
-          this.router.navigateByUrl('checkout');
           return true;
         }
       }
