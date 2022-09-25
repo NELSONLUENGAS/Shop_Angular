@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
         const isAdmin = JSON.parse(window.atob(user.token.split('.')[1])).isAdmin;
         timer(2000).subscribe(() =>{
           this.display = false;
-          isAdmin ? window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app' : window.location.href = 'https://shop-angular-admin.vercel.app';
+          !isAdmin ? window.location.href = 'https://shop-angular-shop-ecommerce-angular-n93j.vercel.app' : window.location.href = 'https://shop-angular-admin.vercel.app';
         })
       }else{
         this.display = false;
